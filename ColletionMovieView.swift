@@ -10,8 +10,11 @@ import UIKit
 
 class ColletionMovieView: NSObject, UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
-    let colletionId = "colletion_id"
+    let colletionId = "colletionId"
+    let colletionMovieId = "colletionMovieId"
+    
     var movies:[Movie]?
+    var type:Bool = false
     
     lazy var colletionView: UICollectionView = {
        
@@ -28,6 +31,7 @@ class ColletionMovieView: NSObject, UICollectionViewDelegate,UICollectionViewDat
     override init(){
         super.init()
         colletionView.register(MovieContinueCell.self, forCellWithReuseIdentifier: colletionId)
+        colletionView.register(MovieCell.self, forCellWithReuseIdentifier: colletionMovieId)
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -35,14 +39,24 @@ class ColletionMovieView: NSObject, UICollectionViewDelegate,UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return movies?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let  cell  = collectionView.dequeueReusableCell(withReuseIdentifier: colletionId, for: indexPath) as! MovieContinueCell
-        cell.backgroundColor = .orange
-        cell.movie = movies?[indexPath.section]
-        return cell
+        if type{
+            
+            let  cell  = collectionView.dequeueReusableCell(withReuseIdentifier: colletionId, for: indexPath) as! MovieContinueCell
+            cell.backgroundColor = .yellow
+            cell.movie = movies?[indexPath.section]
+            return cell
+            
+        }else{
+            
+            let  cell  = collectionView.dequeueReusableCell(withReuseIdentifier: colletionMovieId, for: indexPath) as! MovieCell
+            cell.backgroundColor = .brown
+            cell.movie = movies?[indexPath.section]
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -50,7 +64,16 @@ class ColletionMovieView: NSObject, UICollectionViewDelegate,UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width: CGFloat = collectionView.frame.width * 0.6
-        return CGSize(width: width, height: width * (3 / 4))
+        if type{
+            
+            let width: CGFloat = collectionView.frame.width * 0.6
+            return CGSize(width: width, height: width * (3 / 4))
+            
+        }else{
+        
+            let width: CGFloat = collectionView.frame.width * 0.6
+            return CGSize(width: width, height: width * (16 / 9))
+            
+        }
     }
 }

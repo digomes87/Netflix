@@ -151,6 +151,8 @@ extension feedMovieViewController{
         }
         
         
+        
+        cell.type = indexPath.section == 0
         //cellua inteira, o fundo
         cell.backgroundColor = .brown
         return cell

@@ -16,6 +16,12 @@ class FeedMovieCell: UITableViewCell {
         }
     }
     
+    var type: Bool! {
+        didSet{
+            colletionMovieView.movies = movies
+        }
+    }
+    
     let colletionMovieView: ColletionMovieView = {
        return ColletionMovieView()
     }()
