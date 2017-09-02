@@ -18,7 +18,7 @@ class ColletionMovieView: NSObject, UICollectionViewDelegate,UICollectionViewDat
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let cl = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        cl.backgroundColor = .green
+        cl.backgroundColor = UIColor.fromHex(value: 0x313131)
         cl.delegate = self
         cl.dataSource = self
         
@@ -43,6 +43,10 @@ class ColletionMovieView: NSObject, UICollectionViewDelegate,UICollectionViewDat
         cell.backgroundColor = .orange
         cell.movie = movies?[indexPath.section]
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

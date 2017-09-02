@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //aqui vou pegar toda a tela
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        let feedVC =  feedMovieViewController()
+        let feedVC =  feedMovieViewController(style: UITableViewStyle.grouped)
         let navVC = UINavigationController(rootViewController: feedVC)
         
         window?.rootViewController = navVC
@@ -52,6 +52,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 }
+
+extension UIColor {
+    static func fromHex(value: UInt32) -> UIColor{
+        let r = CGFloat((value & 0xFF0000) >> 16) / 255.0
+        let g = CGFloat((value & 0x00FF00) >> 8) / 255.0
+        let b = CGFloat(value & 0x0000FF) / 255.0
+        let a = CGFloat(1.0)
+        
+        return UIColor(red: r, green: g, blue: b, alpha: a)
+    }
+}
+
+
 
 extension UIView {
     func cons(pattern:String, views:UIView...){

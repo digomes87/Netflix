@@ -35,6 +35,8 @@ class feedMovieViewController: UITableViewController {
         tableView.register(FeedMovieCell.self, forCellReuseIdentifier: cellId)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
+        tableView.backgroundColor = UIColor.fromHex(value: 0x313131)
+        tableView.separatorStyle = .none
     }
     
     
@@ -74,6 +76,54 @@ extension feedMovieViewController{
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
+    
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
+        headerView.backgroundColor = UIColor.fromHex(value: 0x313131)
+        
+        if let movieDic = feedMovie?.movie {
+            
+            let label = UILabel(frame: .zero)
+            label.text = Array(movieDic.keys)[section]
+            label.textColor = UIColor.white
+            label.font = UIFont.boldSystemFont(ofSize: 14)
+            label.translatesAutoresizingMaskIntoConstraints = false
+            
+            headerView.addSubview(label)
+            
+            var constraints = [NSLayoutConstraint]()
+            constraints.append(NSLayoutConstraint(item: label,
+                                                  attribute: NSLayoutAttribute.bottom,
+                                                  relatedBy: NSLayoutRelation.equal,
+                                                  toItem: headerView,
+                                                  attribute:NSLayoutAttribute.bottom,
+                                                  multiplier: 1,
+                                                 constant: -4))
+            
+            
+            
+            constraints.append(NSLayoutConstraint(item: label,
+                                                  attribute: NSLayoutAttribute.left,
+                                                  relatedBy: NSLayoutRelation.equal,
+                                                  toItem: headerView,
+                                                  attribute:NSLayoutAttribute.left,
+                                                  multiplier: 1,
+                                                  constant: 8))
+            
+            NSLayoutConstraint.activate(constraints)
+            
+
+        }
+        return headerView
+    }
+    
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if let movie = feedMovie?.movie{
