@@ -17,7 +17,8 @@ struct Movie{
 
 
 class FeedMovie{
-    let highlight = Movie(id: 1, imgUrl: "",title: "Assista agora o Lançamento", description: nil)
+    let highlight = Movie(id: 1, imgUrl: "highlight" ,title: "Assista agora a Primeira temporada", description: nil)
+    
     let movie: [Int: (String, [Movie])] = [
         0: ("Continue Assistindo", [
             Movie(id: 1, imgUrl: "516654", title: "Imagem Um", description: "Uma aventura do Barulho"),

@@ -21,7 +21,7 @@ class ColletionMovieView: NSObject, UICollectionViewDelegate,UICollectionViewDat
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let cl = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        cl.backgroundColor = UIColor.fromHex(value: 0x313131)
+        cl.backgroundColor = UIColor.fromHex(value: 0x222222)
         cl.delegate = self
         cl.dataSource = self
         
@@ -46,14 +46,14 @@ class ColletionMovieView: NSObject, UICollectionViewDelegate,UICollectionViewDat
         if type{
             
             let  cell  = collectionView.dequeueReusableCell(withReuseIdentifier: colletionId, for: indexPath) as! MovieContinueCell
-            cell.backgroundColor = .yellow
+            cell.backgroundColor = UIColor.fromHex(value: 0x313131)
             cell.movie = movies?[indexPath.row]
             return cell
             
         }else{
             
             let  cell  = collectionView.dequeueReusableCell(withReuseIdentifier: colletionMovieId, for: indexPath) as! MovieCell
-            cell.backgroundColor = .brown
+            cell.backgroundColor = UIColor.fromHex(value: 0x313131)
             cell.movie = movies?[indexPath.row]
             return cell
         }
