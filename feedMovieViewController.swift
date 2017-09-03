@@ -53,29 +53,62 @@ class feedMovieViewController: UITableViewController {
     
     
     func setupHeaderView(movie: Movie){
-        let width = tableView.frame.width
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: width, height: width * ( 9 / 16 ) + 32))
+        let a = tableView.frame.height
+        let h = UIView(frame: CGRect(x: 0, y: 0, width: a, height: a * (7 / 16 ) + 32))
         
         let iv = UIImageView()
-       // iv.image = UIImage(named: movie.imgUrl)
-        iv.contentMode = .scaleAspectFill
-        iv.clipsToBounds = true
-        iv.backgroundColor = .red
-        header.addSubview(iv)
         
-        let lbl = UILabel()
-        lbl.text =  movie.title
-        lbl.textColor = .white
-        lbl.backgroundColor = .black
-        lbl.font = UIFont.boldSystemFont(ofSize: 12)
-        lbl.textAlignment = .center
-        lbl.addSubview(lbl)
+        //adicionando a imagem
+        iv.image = UIImage(named: movie.imgUrl)
+        //configurando o apecfill para a imagem nao ficar muito com aquelas destorçao
+        iv.contentMode = .scaleToFill
+        //configurando bounds
+        iv.clipsToBounds =  true
+    
         
-        header.cons(pattern: "H:[v0]", views: iv)
-        header.cons(pattern: "H:[v0]", views: lbl)
-        header.cons(pattern: "V:[v0(32)]", views: iv, lbl)
         
-        tableView.tableHeaderView = header
+        //criando o titulo e configurando,cor,font,centralizado
+//        let lbl =  UILabel()
+//        lbl.text = movie.title
+//        lbl.backgroundColor = .white
+//        lbl.backgroundColor = .black
+//        lbl.font = UIFont.boldSystemFont(ofSize: 12)
+//        lbl.textAlignment = .center
+        
+      //  lbl.addSubview(lbl)
+        h.addSubview(iv)
+        
+
+        h.cons(pattern: "V:[v0]", views: iv)
+      //  h.cons(pattern: "H:[v0]", views: lbl)
+       // h.cons(pattern: "V:[v0]", views: iv, lbl)
+        
+        return tableView.tableHeaderView = h
+        
+        
+//        let width = tableView.frame.width
+//        let header = UIView(frame: CGRect(x: 0, y: 0, width: width, height: width * ( 9 / 16 ) + 32))
+//        
+//        let iv = UIImageView()
+//        iv.image = UIImage(named: movie.imgUrl)
+//        iv.contentMode = .scaleAspectFill
+//        iv.clipsToBounds = true
+//        iv.backgroundColor = .red
+//       // header.addSubview(iv)
+//        
+//        let lbl = UILabel()
+//        lbl.text =  movie.title
+//        lbl.textColor = .white
+//        lbl.backgroundColor = .black
+//        lbl.font = UIFont.boldSystemFont(ofSize: 12)
+//        lbl.textAlignment = .center
+//        lbl.addSubview(lbl)
+//        
+//        header.cons(pattern: "H:[v0]", views: iv)
+//        header.cons(pattern: "H:[v0]", views: lbl)
+//        header.cons(pattern: "V:[v0]", views: iv, lbl)
+        
+        //tableView.tableHeaderView = header
     }
 }
 
