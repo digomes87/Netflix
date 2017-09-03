@@ -27,14 +27,14 @@ class MovieCell: UICollectionViewCell {
     
     override init(frame:CGRect){
         super.init(frame: frame)
-        setViews()
+        setupViews()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has be not implemeted")
     }
     
-    private func setViews(){
+    private func setupViews(){
         addSubview(titleLabel)
         cons(pattern: "H:|[v0]|", views: titleLabel)
         cons(pattern: "V:[v0(40)]|", views: titleLabel)

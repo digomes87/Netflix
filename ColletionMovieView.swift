@@ -42,19 +42,20 @@ class ColletionMovieView: NSObject, UICollectionViewDelegate,UICollectionViewDat
         return movies?.count ?? 0
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if type{
             
             let  cell  = collectionView.dequeueReusableCell(withReuseIdentifier: colletionId, for: indexPath) as! MovieContinueCell
-            cell.backgroundColor = UIColor.fromHex(value: 0x313131)
-            cell.movie = movies?[indexPath.row]
+            cell.backgroundColor = .yellow
+            cell.movie = movies?[indexPath.section]
             return cell
             
         }else{
             
             let  cell  = collectionView.dequeueReusableCell(withReuseIdentifier: colletionMovieId, for: indexPath) as! MovieCell
-            cell.backgroundColor = UIColor.fromHex(value: 0x313131)
-            cell.movie = movies?[indexPath.row]
+            cell.backgroundColor = .brown
+            cell.movie = movies?[indexPath.section]
             return cell
         }
     }

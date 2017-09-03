@@ -56,11 +56,14 @@ class feedMovieViewController: UITableViewController {
     
     func setupHeaderView(movie: Movie){
         let width = tableView.frame.width
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: width, height: width * ( 9/16 )+32))
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: width, height: width * ( 6/9 )+32))
         
         let iv = UIImageView()
-        iv.backgroundColor = .red
-        header.addSubview(iv)
+        iv.image = UIImage(named: movie.imgUrl)
+        iv.contentMode = .scaleAspectFill
+        iv.clipsToBounds = true
+       // iv.backgroundColor = .red
+        header.didAddSubview(iv)
         
         let lbl = UILabel()
         lbl.text =  movie.title
@@ -68,11 +71,11 @@ class feedMovieViewController: UITableViewController {
         lbl.backgroundColor = .black
         lbl.font = UIFont.boldSystemFont(ofSize: 12)
         lbl.textAlignment = .center
-        lbl.addSubview(lbl)
+        lbl.didAddSubview(lbl)
         
         header.cons(pattern: "H:[v0]", views: iv)
         header.cons(pattern: "H:[v0]", views: lbl)
-        header.cons(pattern: "V:[v0(32)]-10-|", views: iv, lbl)
+        header.cons(pattern: "V:[v0(32)]", views: iv, lbl)
         
         tableView.tableHeaderView = header
     }
