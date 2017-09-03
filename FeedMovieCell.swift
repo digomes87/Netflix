@@ -4,7 +4,7 @@
 //
 //  Created by Diego Go on 8/30/17.
 //  Copyright © 2017 Diego Go. All rights reserved.
-//
+// 
 
 import UIKit
 
@@ -18,7 +18,7 @@ class FeedMovieCell: UITableViewCell {
     
     var type: Bool! {
         didSet{
-            colletionMovieView.movies = movies
+            colletionMovieView.type = type
         }
     }
     

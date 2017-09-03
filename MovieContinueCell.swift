@@ -10,7 +10,6 @@ import UIKit
 
 class MovieContinueCell: UICollectionViewCell {
     
-    
     var movie: Movie?{
         didSet{
             titleLabel.text = movie?.title

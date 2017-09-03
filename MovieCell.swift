@@ -6,7 +6,6 @@
 //  Copyright © 2017 Diego Go. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class MovieCell: UICollectionViewCell {

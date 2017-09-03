@@ -52,6 +52,29 @@ class feedMovieViewController: UITableViewController {
         window.cons(pattern: "H:|[v0]|", views: progress)
         window.cons(pattern: "V:|[v0]|", views: progress)
     }
+    
+    
+    func setupHeaderView(movie: Movie){
+        let width = tableView.frame.width
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: width, height: width * ( 9/16 )+32))
+        
+        let iv = UIImageView()
+        iv.backgroundColor = .red
+        header.addSubview(iv)
+        
+        let lbl = UILabel()
+        lbl.text =  movie.title
+        lbl.textColor = .white
+        lbl.backgroundColor = .black
+        lbl.font = UIFont.boldSystemFont(ofSize: 12)
+        lbl.textAlignment = .center
+        
+        header.cons(pattern: "H:[v0]", views: iv)
+        header.cons(pattern: "H:[v0]", views: lbl)
+        header.cons(pattern: "V:|[v0][v1(32)]-10-|", views: iv ,lbl)
+        
+        tableView.tableHeaderView = header
+    }
 }
 
 //Extension ajudam a organizar o codigo
@@ -63,6 +86,7 @@ extension feedMovieViewController: FeedMovieDelegate{
         
         if status == 200 {
             self.feedMovie = feed
+            self.setupHeaderView(movie: feed.highlight)
             tableView?.reloadData()
         }
     }
@@ -91,7 +115,7 @@ extension feedMovieViewController{
         if let movieDic = feedMovie?.movie {
             
             let label = UILabel(frame: .zero)
-            label.text = Array(movieDic.keys)[section]
+            label.text = movieDic[section]?.0
             label.textColor = UIColor.white
             label.font = UIFont.boldSystemFont(ofSize: 14)
             label.translatesAutoresizingMaskIntoConstraints = false
@@ -124,15 +148,15 @@ extension feedMovieViewController{
         return headerView
     }
     
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if let movie = feedMovie?.movie{
-            return Array(movie.keys)[section]
-            
-        }
-        
-        return nil
-    }
+//    
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        if let movie = feedMovie?.movie{
+//            return Array(movie.keys)[section]
+//            
+//        }
+//        
+//        return nil
+//    }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             let width: CGFloat = tableView.frame.width * 0.6
@@ -145,8 +169,8 @@ extension feedMovieViewController{
         
         
         if let m = feedMovie?.movie{
-            let key = Array(m.keys)[indexPath.section]
-            let movie = m[key]
+            //let key = Array(m.keys)[indexPath.section]
+            let movie = m[indexPath.section]?.1
             cell.movies = movie
         }
         

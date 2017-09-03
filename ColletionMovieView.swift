@@ -47,14 +47,14 @@ class ColletionMovieView: NSObject, UICollectionViewDelegate,UICollectionViewDat
             
             let  cell  = collectionView.dequeueReusableCell(withReuseIdentifier: colletionId, for: indexPath) as! MovieContinueCell
             cell.backgroundColor = .yellow
-            cell.movie = movies?[indexPath.section]
+            cell.movie = movies?[indexPath.row]
             return cell
             
         }else{
             
             let  cell  = collectionView.dequeueReusableCell(withReuseIdentifier: colletionMovieId, for: indexPath) as! MovieCell
             cell.backgroundColor = .brown
-            cell.movie = movies?[indexPath.section]
+            cell.movie = movies?[indexPath.row]
             return cell
         }
     }
@@ -68,12 +68,9 @@ class ColletionMovieView: NSObject, UICollectionViewDelegate,UICollectionViewDat
             
             let width: CGFloat = collectionView.frame.width * 0.6
             return CGSize(width: width, height: width * (3 / 4))
-            
         }else{
-        
-            let width: CGFloat = collectionView.frame.width * 0.6
+            let width: CGFloat = collectionView.frame.width * 0.29
             return CGSize(width: width, height: width * (16 / 9))
-            
         }
     }
 }
