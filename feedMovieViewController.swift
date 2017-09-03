@@ -39,8 +39,6 @@ class feedMovieViewController: UITableViewController {
         tableView.separatorStyle = .none
     }
     
-    
-    
     private func setupIndicatorView(){
         //a magia do autolayout
         
@@ -56,14 +54,14 @@ class feedMovieViewController: UITableViewController {
     
     func setupHeaderView(movie: Movie){
         let width = tableView.frame.width
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: width, height: width * ( 6/9 )+32))
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: width, height: width * ( 9 / 16 ) + 32))
         
         let iv = UIImageView()
-        iv.image = UIImage(named: movie.imgUrl)
+       // iv.image = UIImage(named: movie.imgUrl)
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
-       // iv.backgroundColor = .red
-        header.didAddSubview(iv)
+        iv.backgroundColor = .red
+        header.addSubview(iv)
         
         let lbl = UILabel()
         lbl.text =  movie.title
@@ -71,7 +69,7 @@ class feedMovieViewController: UITableViewController {
         lbl.backgroundColor = .black
         lbl.font = UIFont.boldSystemFont(ofSize: 12)
         lbl.textAlignment = .center
-        lbl.didAddSubview(lbl)
+        lbl.addSubview(lbl)
         
         header.cons(pattern: "H:[v0]", views: iv)
         header.cons(pattern: "H:[v0]", views: lbl)
