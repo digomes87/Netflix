@@ -23,7 +23,10 @@ class FeedMovieCell: UITableViewCell {
     }
     
     let colletionMovieView: ColletionMovieView = {
-       return ColletionMovieView()
+        let cl = ColletionMovieView()
+        cl.colletionView.showsHorizontalScrollIndicator = false
+        return cl
+    
     }()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?){

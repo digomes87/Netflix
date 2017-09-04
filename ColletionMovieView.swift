@@ -14,7 +14,12 @@ class ColletionMovieView: NSObject, UICollectionViewDelegate,UICollectionViewDat
     let colletionMovieId = "colletionMovieId"
     
     var movies:[Movie]?
-    var type:Bool = false
+
+    var type:Bool = false {
+        didSet{
+            colletionView.reloadData()
+        }
+    }
     
     lazy var colletionView: UICollectionView = {
        

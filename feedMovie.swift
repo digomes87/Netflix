@@ -21,15 +21,31 @@ class FeedMovie{
     
     let movie: [Int: (String, [Movie])] = [
         0: ("Continue Assistindo", [
-            Movie(id: 1, imgUrl: "70284281", title: "Imagem Um", description: "Uma aventura do Barulho"),
-            Movie(id: 2, imgUrl: "70298966", title: "Imagem Dois", description: "Vc vai morrer de rir com as trapalhadas dessa galerinha do barulho que apronta todas")
+            Movie(id: 1, imgUrl: "1", title: "Imagem Um", description: "Uma aventura do Barulho"),
+            Movie(id: 2, imgUrl: "2", title: "Imagem Dois", description: "Vc vai morrer de rir com as trapalhadas dessa galerinha do barulho que apronta todas"),
+            Movie(id: 1, imgUrl: "4", title: "Imagem Um", description: "Uma aventura do Barulho"),
+            Movie(id: 2, imgUrl: "3", title: "Imagem Dois", description: "Vc vai morrer de rir com as trapalhadas dessa galerinha do barulho que apronta todas")
         ]),
         1: ("Novidades", [
-            Movie(id: 3, imgUrl: "516446", title: "Imagem TRES", description: "Ele vai se meter em uma confusão"),
-            Movie(id: 4, imgUrl: "starwars", title: "Imagem QUATRO", description: "Eles juntos irão se envovler em altas aventuras"),
-            Movie(id: 5, imgUrl: "70298966", title: "Imagem CINCO", description: "Eles juntos irão se envovler em altas aventuras"),
-            Movie(id: 6, imgUrl: "starwars", title: "Imagem SEIS", description: "Eles juntos irão se envovler em altas aventuras"),
-            Movie(id: 7, imgUrl: "70284281", title: "Imagem SETE", description: "Eles juntos irão se envovler em altas aventuras")
-        ])
+            Movie(id: 3, imgUrl: "3", title: "Imagem TRES", description: "Ele vai se meter em uma confusão"),
+            Movie(id: 4, imgUrl: "4", title: "Imagem QUATRO", description: "Eles juntos irão se envovler em altas aventuras"),
+            Movie(id: 5, imgUrl: "1", title: "Imagem CINCO", description: "Eles juntos irão se envovler em altas aventuras"),
+            Movie(id: 6, imgUrl: "2", title: "Imagem SEIS", description: "Eles juntos irão se envovler em altas aventuras"),
+            Movie(id: 7, imgUrl: "3", title: "Imagem SETE", description: "Eles juntos irão se envovler em altas aventuras")
+        ]),
+        2: ("Lançamentos", [
+            Movie(id: 3, imgUrl: "4", title: "Imagem TRES", description: "Ele vai se meter em uma confusão"),
+            Movie(id: 4, imgUrl: "1", title: "Imagem QUATRO", description: "Eles juntos irão se envovler em altas aventuras"),
+            Movie(id: 5, imgUrl: "2", title: "Imagem CINCO", description: "Eles juntos irão se envovler em altas aventuras"),
+            Movie(id: 6, imgUrl: "3", title: "Imagem SEIS", description: "Eles juntos irão se envovler em altas aventuras"),
+            Movie(id: 7, imgUrl: "4", title: "Imagem SETE", description: "Eles juntos irão se envovler em altas aventuras")
+            ]),
+        3: ("Mangas", [
+            Movie(id: 3, imgUrl: "1", title: "Imagem TRES", description: "Ele vai se meter em uma confusão"),
+            Movie(id: 4, imgUrl: "2", title: "Imagem QUATRO", description: "Eles juntos irão se envovler em altas aventuras"),
+            Movie(id: 5, imgUrl: "3", title: "Imagem CINCO", description: "Eles juntos irão se envovler em altas aventuras"),
+            Movie(id: 6, imgUrl: "4", title: "Imagem SEIS", description: "Eles juntos irão se envovler em altas aventuras"),
+            Movie(id: 7, imgUrl: "1", title: "Imagem SETE", description: "Eles juntos irão se envovler em altas aventuras")
+            ]),
     ]
 }

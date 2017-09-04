@@ -32,11 +32,26 @@ class feedMovieViewController: UITableViewController {
     }
     
     private func setupView(){
+        
+        //status bar
+        
+        //navigationView
+        let logo = UIImageView(frame: CGRect(x: 0, y: 0, width: (navigationController?.navigationBar.frame.width)!, height: (navigationController?.navigationBar.frame.height)! * 0.65))
+        
+        logo.image = UIImage(named: "logo-splash")
+        logo.contentMode = .scaleAspectFit
+        navigationItem.titleView = logo
+        navigationController?.navigationBar.barTintColor =  UIColor.fromHex(value: 0x111111, alpha: 0.5)
+        navigationController?.navigationBar.isTranslucent = true
+        
+        
+        //TableView
         tableView.register(FeedMovieCell.self, forCellReuseIdentifier: cellId)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
         tableView.backgroundColor = UIColor.fromHex(value: 0x222222)
         tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
     }
     
     private func setupIndicatorView(){

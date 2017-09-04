@@ -14,9 +14,19 @@ class MovieCell: UICollectionViewCell {
     var movie: Movie?{
         didSet{
             titleLabel.text = movie?.title
+            if let Url = movie?.imgUrl {
+                img.image = UIImage(named: Url)
+            }
         }
     }
     
+    
+    let img: UIImageView = {
+        let iv = UIImageView()
+        iv.clipsToBounds = true
+        
+        return iv
+    }()
     
     let titleLabel: UILabel = {
         let lbl = UILabel()
@@ -35,9 +45,9 @@ class MovieCell: UICollectionViewCell {
     }
     
     private func setupViews(){
-        addSubview(titleLabel)
-        cons(pattern: "H:|[v0]|", views: titleLabel)
-        cons(pattern: "V:[v0(40)]|", views: titleLabel)
+        addSubview(img)
+        cons(pattern: "H:|[v0]|", views: img)
+        cons(pattern: "V:|[v0]|", views: img)
         
     }
 }

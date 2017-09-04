@@ -62,6 +62,15 @@ extension UIColor {
         
         return UIColor(red: r, green: g, blue: b, alpha: a)
     }
+    
+    static func fromHex(value: UInt32, alpha: CGFloat) -> UIColor{
+        let r = CGFloat((value & 0xFF0000) >> 16) / 255.0
+        let g = CGFloat((value & 0x00FF00) >> 8) / 255.0
+        let b = CGFloat(value & 0x0000FF) / 255.0
+        let a = alpha
+        
+        return UIColor(red: r, green: g, blue: b, alpha: a)
+    }
 }
 
 
