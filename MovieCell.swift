@@ -23,6 +23,7 @@ class MovieCell: UICollectionViewCell {
     
     let img: UIImageView = {
         let iv = UIImageView()
+        iv.contentMode = .scaleToFill
         iv.clipsToBounds = true
         
         return iv
